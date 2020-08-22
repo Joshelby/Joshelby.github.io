@@ -1,59 +1,34 @@
 <DOCTYPE! html>
 <html>
     <head>
-        <title>League of Trivia</title>
-        <link href="resources/css/style.css" type="text/css" rel="stylesheet">
+        <title>Trivia Hub</title>
+        <link href="resources/css/index-style.css" type="text/css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
             <div id="title-bar">
-                <img src="resources/images/logo.png" alt="Logo">
-                <h1 id="full-page-title">eague of Trivia</h1>
-                <h1 id="short-page-title"><span>o</span>T</h1>
-                <div id="gradient-spacer"></div>
+                <h1 id="full-page-title">Trivia Hub</h1>
             </div>
             <div id="nav-buttons">
                 <div class="nav-button">
                     <p>About</p>
                 </div>
-                <div class="nav-button">
-                    <p>Contact</p>
-                </div>
             </div>
         </header>
         <main>
-            <section id="question-section">
-                <h2 id="results-header">FINAL RESULTS</h2>
-                <div id="question-frame">
-                    <div id="question-box">
-                    </div>
-                    <div id="answer-box">
-                    </div>
-                </div>
-                <div id="question-nav-buttons">
-                    <div class="question-nav-button" id="back-button">
-                        <p>Back</p>
-                    </div>
-                    <div class="question-nav-button" id="next-button">
-                        <p>Start</p>
+            <section id="game-buttons-section">
+                <div id="league-of-trivia-button" class="game-button">
+                    <div class="opacity-filter"></div>
+                    <div class="game-button-content">
+                        <img src="resources/images/logo.png" alt="Logo">
+                        <p>eague of Trivia</p>
                     </div>
                 </div>
-            </section>
-            <section id="results-section">
-                <div id="results-box">
-                    <ol id="results-list">
-                    </ol>
-                    <h2 id="results-summary"></h2>
-                </div>
-            </div>
             </section>
         </main>
-        <footer>
-            <p>Josh White</p>
-        </footer>
     </body>
-    <script src="./questions.js"></script>
-    <script src="./main.js"></script>
+    <script src="./index.js"></script>
 </html>
+
 </DOCTYPE>

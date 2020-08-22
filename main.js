@@ -1,3 +1,5 @@
+const logo = document.getElementById("logo")
+const homeButton = document.getElementById("home-button")
 const nextButton = document.getElementById("next-button")
 const backButton = document.getElementById("back-button")
 const questionSection = document.getElementById("question-section")
@@ -17,10 +19,10 @@ quiz.shuffleQuestions()
 quiz._questions.forEach(question => question.shuffleAnswers())
 
 const updateAnswerBox = (type) => {
-    if (currentQuestionNumber != 0) {
+    let answerForm = document.getElementById("answer-form")
+    if (answerForm) {
         document.getElementById("answer-form").remove()
     }
-
     if (type === "freeform") {
         answerBox.innerHTML = `<form id='answer-form' autocomplete='off'>
         <input type='text' id='answer-field' class='answer-field' maxlength='20'>
@@ -32,7 +34,7 @@ const updateAnswerBox = (type) => {
         let answerForm = answerBox.appendChild(document.createElement("form"))
         answerForm.autocomplete = "off"
         answerForm.id = "answer-form"
-        let answerList = answerForm.appendChild(document.createElement("ul"))
+        let answerList = answerForm.appendChild(document.createElement("ol"))
         answerList.id = "answer-list"
         quiz._questions[currentQuestionNumber]._answers.forEach(answer => {
             answerCounter++
@@ -84,7 +86,6 @@ const nextQuestion = (start) => {
         nextButton.firstElementChild.innerHTML = "Finish"
         nextButton.onclick = end
     }
-    
     updateAnswerBox(quiz._questions[currentQuestionNumber]._type)
     updateQuestionBox(quiz._questions[currentQuestionNumber]._type)
 }
@@ -138,11 +139,22 @@ const end = () => {
     createResultItems()
 }
 
+const refresh = () => {
+    window.location.reload()
+}
+
+const goHome = () => {
+    window.location.href = `./index.html`
+}
+
 const initialLoad = () => {
     questionBox.innerHTML = "<p>Welcome to League of Trivia!</p>"
 }
 
+homeButton.onclick = goHome
 nextButton.onclick = start
 backButton.onclick = back
+logo.onclick = refresh
+
 
 initialLoad()

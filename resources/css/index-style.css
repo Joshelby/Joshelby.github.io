@@ -1,0 +1,120 @@
+html {
+    background-color: lightgray;
+    font-family: helvetica;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ffb300;
+    height: 15%;
+    min-height: 95px;
+    max-height: 120px;
+    width: 100%;
+    z-index: 1;
+    float: top;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 1px solid black;
+    font-family: 'PT Sans', sans-serif;
+}
+
+#title-bar {
+    height: 100%;
+    width: 100%;
+    min-width: 100px;
+    flex-shrink: 1;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1%;
+}
+
+#full-page-title {
+    color: lightyellow;
+    margin-top: 1%;
+    margin-bottom: 5px;
+    font-size: 3.75em;
+    text-shadow: 5px 5px 8px #000000;
+}
+
+#nav-buttons {
+    margin: 0 1% 0 auto;
+    width: 15%;
+    height: 100%;
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style-type: none;
+    font-weight: 600;
+    font-size: 2.25rem;
+    flex-shrink: 0;
+}
+
+.nav-button {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.nav-button p {
+    color: lightyellow;
+}
+
+#game-buttons-section {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 0 auto;
+    padding-top: 30px;
+}
+
+.game-button {
+    height: 100px;
+    width: 40%;
+    background-image: url("../images/league-of-trivia-button-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 7px;
+    position: relative;
+    cursor: pointer;
+}
+
+.opacity-filter {
+    height: 100%;
+    width: 100%;
+    opacity: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.game-button-content {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.game-button-content img {
+    max-height: 80%;
+    flex-shrink: 1;
+    display: inline-block;
+}
+
+.game-button-content p {
+    display: inline-block;
+    color: rgb(170, 150, 85);
+    margin-top: 1%;
+    margin-bottom: 5px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-shadow: 4px 4px 5px #000000
+}

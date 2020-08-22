@@ -1,8 +1,6 @@
 html {
     background-color: rgb(11, 38, 114);
     font-family: helvetica;
-    margin: 0px;
-    padding: 0px;
 }
 
 * {
@@ -25,11 +23,12 @@ header {
     font-family: 'PT Sans', sans-serif;
 }
 
-#title-bar img {
+#logo {
     max-height: 80%;
     max-width: 80%;
     margin-left: 30px;
     flex-shrink: 1;
+    cursor: pointer;
 }
 
 #title-bar {
@@ -90,6 +89,7 @@ header {
 .nav-button {
     margin-top: 15px;
     padding: 10px;
+    cursor: pointer;
 }
 
 .nav-button p {
@@ -142,7 +142,7 @@ header {
 #answer-box {
     height: 33%;
     width: 100%;
-    margin: 5% 0;
+    
     display: none;
     justify-content: center;
 }
@@ -159,6 +159,8 @@ header {
 #answer-form {
     display: flex;
     justify-content: center;
+    margin: 5% 0;
+    width: 100%;
 }
 
 #answer-field {
@@ -171,6 +173,23 @@ header {
 
 #answer-field:focus {
     outline: none;
+}
+
+#answer-list {
+    font-size: 1.25rem;
+    width: 100;
+    list-style-type: none; 
+}
+
+#answer-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#answer-list li label {
+    margin-left: 6%;
+    color: rgb(0, 0, 63);
 }
 
 #results-box {
