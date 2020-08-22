@@ -144,6 +144,7 @@ const refresh = () => {
 }
 
 const goHome = () => {
+    console.log("Home button clicked")
     window.location.href = `./index.html`
 }
 
