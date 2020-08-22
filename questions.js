@@ -8,7 +8,14 @@ class Question {
         this._result
     }
     checkAnswer() {
-        this._result = (this._userAnswer.toLowerCase() === this._answers[this._correctAnswer])
+        if (this._userAnswer) {
+            this._result = (this._userAnswer.toLowerCase() === this._answers[this._correctAnswer])
+        }
+    }
+    shuffleAnswers() {
+        let correctAnswer = this._answers[this._correctAnswer]
+        shuffle(this._answers)
+        this._correctAnswer = this._answers.findIndex(answer => answer === correctAnswer)
     }
 }
 
@@ -20,8 +27,27 @@ class Quiz {
         this._questions.push(new Question(questionText, answers, correctAnswer, type))
     }
     markQuiz() {
-        this._questions.forEach(question => question.checkAnswer())
+        let score = 0
+        this._questions.forEach(question => {
+            question.checkAnswer()
+            if (question._result) {
+                score++
+            } 
+        })
+        return score
     }
+    shuffleQuestions() {
+        shuffle(this._questions)
+    }
+}
+
+function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * i)
+        const temp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = temp
+      }
 }
 
 function toTitleCase(string) {
@@ -34,4 +60,4 @@ let test = "hello"
 
 const quiz1 = new Quiz()
 quiz1.addQuestion("What is the name of Yasuo's brother?", ["steve", "yone", "dave", "ben"], 1, "freeform")
-quiz1.addQuestion("How much gold does B.F. Sword cost?", ["1300", "1200", "1500", "1600"], 0, "freeform")
+quiz1.addQuestion("How much gold does B.F. Sword cost?", ["1300", "1200", "1500", "1600"], 0, "multichoice")
