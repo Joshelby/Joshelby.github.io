@@ -185,7 +185,7 @@ header {
 
 #answer-list {
     color: rgb(170, 150, 85);
-    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-width: 0.1px;
     -webkit-text-stroke-color: black;
     font-weight: 700;
     font-size: 1.5rem;
@@ -197,12 +197,14 @@ header {
     display: flex;
     margin: 4% 0;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     z-index: 0.5;
 }
 
 #answer-list li label {
-    margin-left: 6%;
+    margin-left: 8px;
+    margin-bottom: 3px;
+    min-width: 100px;
 }
 
 #results-box {

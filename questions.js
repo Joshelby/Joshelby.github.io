@@ -61,5 +61,7 @@ let test = "hello"
 
 const quiz1 = new Quiz()
 quiz1.addQuestion("What is the name of Yasuo's brother?", ["steve", "yone", "dave", "ben"], 1, "freeform")
-quiz1.addQuestion("How much gold does B.F. Sword cost?", ["1300", "1200", "1500", "1600"], 0, "multichoice")
+quiz1.addQuestion("How much gold does B.F. Sword cost?", ["1300", "1200", "1500", "1600"], 0, "freeform")
 quiz1.addQuestion("In which season was the Dominion gamemode removed?", ["5", "6", "8", "7"], 1, "multichoice")
+quiz1.addQuestion("Which Yordle does Rumble have a crush on?", ["Lulu", "Tristana", "Teemo", "Poppy"], 1, "freeform")
+quiz1.addQuestion("Who was the toplaner for the team that won Worlds in Season 5?", ["MaRin", "TheShy", "Looper", "Impact"], 0, "multichoice")
