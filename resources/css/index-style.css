@@ -77,10 +77,11 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px 15px;
+    padding: 10px 25px;
     background-image: url("../images/league-of-trivia-button-background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    border: 1px solid darkgrey;
     border-radius: 7px;
     cursor: pointer;
 }
@@ -94,8 +95,8 @@ header {
 .game-button p {
     display: inline-block;
     color: rgb(170, 150, 85);
-    margin-top: 5%;
-    font-size: 2.5rem;
+    margin-top: 3%;
+    font-size: 3.5rem;
     font-weight: 600;
     text-shadow: 4px 4px 5px #000000
 }

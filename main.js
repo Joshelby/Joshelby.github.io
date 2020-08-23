@@ -12,11 +12,8 @@ const resultsBox = document.getElementById("results-box")
 const resultsList = document.getElementById("results-list")
 const resultsSummary = document.getElementById("results-summary")
 
-let currentQuestionNumber = 0
-
-let quiz = quiz1
-quiz.shuffleQuestions()
-quiz._questions.forEach(question => question.shuffleAnswers())
+let currentQuestionNumber
+let quiz
 
 const updateAnswerBox = (type) => {
     let answerForm = document.getElementById("answer-form")
@@ -46,7 +43,7 @@ const updateAnswerBox = (type) => {
             radioButton.class = "answers"
             radioButton.id = `answer-${answerCounter}`
             radioButtonLabel.for = `answer-${answerCounter}`
-            radioButtonLabel.innerHTML = `${answer}`
+            radioButtonLabel.innerHTML = `${toTitleCase(answer)}`
         })
     }
 }
@@ -140,6 +137,9 @@ const end = () => {
 }
 
 const refresh = () => {
+    currentQuestionNumber = 0
+    quiz.shuffleQuestions()
+    quiz._questions.forEach(question => question.shuffleAnswers())
     window.location.reload()
 }
 
@@ -149,13 +149,16 @@ const goHome = () => {
 }
 
 const initialLoad = () => {
+    currentQuestionNumber = 0
+    quiz = quiz1
     questionBox.innerHTML = "<p>Welcome to League of Trivia!</p>"
+    quiz.shuffleQuestions()
+    quiz._questions.forEach(question => question.shuffleAnswers())
 }
 
 homeButton.onclick = goHome
 nextButton.onclick = start
 backButton.onclick = back
 logo.onclick = refresh
-
 
 initialLoad()
