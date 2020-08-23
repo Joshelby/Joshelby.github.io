@@ -36,6 +36,7 @@ const updateAnswerBox = (back, type) => {
         let answerForm = answerBox.appendChild(document.createElement("form"))
         answerForm.autocomplete = "off"
         answerForm.id = "answer-form"
+        answerForm.style.margin = "2% 0"
         let answerList = answerForm.appendChild(document.createElement("ol"))
         answerList.id = "answer-list"
         quiz._questions[currentQuestionNumber]._answers.forEach(answer => {
