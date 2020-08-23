@@ -183,8 +183,10 @@ header {
 
 #answer-list li {
     display: flex;
+    margin: 4% 0;
     align-items: center;
     justify-content: center;
+    z-index: 0.5;
 }
 
 #answer-list li label {

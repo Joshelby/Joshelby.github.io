@@ -12,7 +12,7 @@ const resultsBox = document.getElementById("results-box")
 const resultsList = document.getElementById("results-list")
 const resultsSummary = document.getElementById("results-summary")
 
-let currentQuestionNumber
+let currentQuestionNumber = 0
 let quiz
 
 const updateAnswerBox = (type) => {
@@ -36,6 +36,7 @@ const updateAnswerBox = (type) => {
         quiz._questions[currentQuestionNumber]._answers.forEach(answer => {
             answerCounter++
             let answerListItem = answerList.appendChild(document.createElement("li"))
+            answerListItem.onclick = checkRadioButton
             let radioButton = answerListItem.appendChild(document.createElement("input"))
             let radioButtonLabel = answerListItem.appendChild(document.createElement("label"))
             radioButton.type = "radio"
@@ -68,7 +69,6 @@ const updateUserAnswer = () => {
         } else {
             quiz._questions[currentQuestionNumber]._userAnswer = ""
         }
-        
     }
 }
 
@@ -88,6 +88,7 @@ const nextQuestion = (start) => {
 }
 
 const back = () => {
+    updateUserAnswer()
     currentQuestionNumber--
     updateAnswerBox(quiz._questions[currentQuestionNumber]._type)
     updateQuestionBox(quiz._questions[currentQuestionNumber]._type)
@@ -137,8 +138,6 @@ const end = () => {
 }
 
 const refresh = () => {
-    currentQuestionNumber = 0
-    quiz.shuffleQuestions()
     quiz._questions.forEach(question => question.shuffleAnswers())
     window.location.reload()
 }
@@ -146,6 +145,15 @@ const refresh = () => {
 const goHome = () => {
     console.log("Home button clicked")
     window.location.href = `./index.html`
+}
+
+const checkRadioButton = event => {
+    console.log(event.target.tagName)
+    if (event.target.tagName === "LABEL") {
+        event.target.parentElement.firstElementChild.checked = true
+    } else if (event.target.tagName === "LI") {
+        event.target.firstElementChild.checked = true
+    }
 }
 
 const initialLoad = () => {
