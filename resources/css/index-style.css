@@ -39,7 +39,8 @@ header {
     margin-top: 1%;
     margin-bottom: 5px;
     font-size: 3.75em;
-    text-shadow: 5px 5px 8px #000000;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 #nav-buttons {
@@ -65,7 +66,9 @@ header {
 }
 
 .nav-button p {
-    color: lightyellow;
+    color: rgba(255, 255, 255, 0.842);
+    -webkit-text-stroke-width: 0.75px;
+    -webkit-text-stroke-color: black;
 }
 
 #game-buttons-section {
@@ -86,7 +89,7 @@ header {
     align-items: center;
     padding: 10px 25px;
     background-color: rgb(133, 100, 19);
-    color: white;
+    color: rgba(255, 255, 255, 0.842);
     border: 1px solid darkgrey;
     border-radius: 7px;
     cursor: pointer;
@@ -104,10 +107,9 @@ header {
 
 .game-button p {
     display: inline-block;
-    color: white;
+    color: rgba(255, 255, 255, 0.842);
     font-size: 2.5rem;
     font-weight: 600;
-    text-shadow: 4px 4px 5px #000000
 }
 
 #league-of-trivia-button {
@@ -120,10 +122,17 @@ header {
     color: rgb(170, 150, 85);
     margin-top: 3%;
     font-size: 3.25rem;
+    -webkit-text-stroke-width: 1.25px;
+    -webkit-text-stroke-color: rgb(26, 26, 26);
 }
 
 #coming-soon-button {
-    cursor: pointer;
+    cursor: default;
+}
+
+#coming-soon-button p {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 #coming-soon-button * {

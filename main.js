@@ -11,11 +11,12 @@ const resultsHeader = document.getElementById("results-header")
 const resultsBox = document.getElementById("results-box")
 const resultsList = document.getElementById("results-list")
 const resultsSummary = document.getElementById("results-summary")
+const playAgainButton = document.getElementById("play-again-button")
 
 let currentQuestionNumber = 0
 let quiz
 
-const updateAnswerBox = (type) => {
+const updateAnswerBox = (back, type) => {
     let answerForm = document.getElementById("answer-form")
     if (answerForm) {
         document.getElementById("answer-form").remove()
@@ -24,6 +25,10 @@ const updateAnswerBox = (type) => {
         answerBox.innerHTML = `<form id='answer-form' autocomplete='off'>
         <input type='text' id='answer-field' class='answer-field' maxlength='20'>
     </form>`
+        if (back) {
+            let answerField = document.getElementById("answer-field")
+            answerField.value = quiz._questions[currentQuestionNumber]._userAnswer
+        }
     }
 
     if (type === "multichoice") {
@@ -46,6 +51,15 @@ const updateAnswerBox = (type) => {
             radioButtonLabel.for = `answer-${answerCounter}`
             radioButtonLabel.innerHTML = `${toTitleCase(answer)}`
         })
+        if (back) {
+            let answerList = document.getElementById("answer-list")
+            let answers = answerList.getElementsByTagName("li")
+            let userAnswer = [...answers].find(answer => answer.lastElementChild.innerHTML === quiz._questions[currentQuestionNumber]._userAnswer)
+            console.log(userAnswer)
+            if (userAnswer) {
+                userAnswer.firstElementChild.checked = true
+            }
+        }
     }
 }
 
@@ -83,14 +97,14 @@ const nextQuestion = (start) => {
         nextButton.firstElementChild.innerHTML = "Finish"
         nextButton.onclick = end
     }
-    updateAnswerBox(quiz._questions[currentQuestionNumber]._type)
+    updateAnswerBox(false, quiz._questions[currentQuestionNumber]._type)
     updateQuestionBox(quiz._questions[currentQuestionNumber]._type)
 }
 
 const back = () => {
     updateUserAnswer()
     currentQuestionNumber--
-    updateAnswerBox(quiz._questions[currentQuestionNumber]._type)
+    updateAnswerBox(true, quiz._questions[currentQuestionNumber]._type)
     updateQuestionBox(quiz._questions[currentQuestionNumber]._type)
     nextButton.firstElementChild.innerHTML = "Next"
     nextButton.onclick = (event) => nextQuestion(false)
@@ -168,5 +182,6 @@ homeButton.onclick = goHome
 nextButton.onclick = start
 backButton.onclick = back
 logo.onclick = refresh
+playAgainButton.onclick = refresh
 
 initialLoad()
