@@ -9,7 +9,7 @@ class Question {
     }
     checkAnswer() {
         if (this._userAnswer) {
-            this._result = (this._userAnswer.toLowerCase() === this._answers[this._correctAnswer])
+            this._result = (this._userAnswer.toLowerCase() === this._answers[this._correctAnswer].toLowerCase())
         }
     }
     shuffleAnswers() {
