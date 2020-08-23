@@ -6,6 +6,7 @@ html {
 * {
     margin: 0;
     padding: 0;
+    cursor: default;
 }
 
 header {
@@ -59,6 +60,10 @@ header {
     cursor: pointer;
 }
 
+.nav-button * {
+    cursor: pointer;
+}
+
 .nav-button p {
     color: lightyellow;
 }
@@ -74,15 +79,20 @@ header {
 
 .game-button {
     height: 100px;
+    width: 500px;
+    margin: 2% 0;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 25px;
-    background-image: url("../images/league-of-trivia-button-background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: rgb(133, 100, 19);
+    color: white;
     border: 1px solid darkgrey;
     border-radius: 7px;
+    cursor: pointer;
+}
+
+.game-button * {
     cursor: pointer;
 }
 
@@ -94,9 +104,28 @@ header {
 
 .game-button p {
     display: inline-block;
-    color: rgb(170, 150, 85);
-    margin-top: 3%;
-    font-size: 3.5rem;
+    color: white;
+    font-size: 2.5rem;
     font-weight: 600;
     text-shadow: 4px 4px 5px #000000
+}
+
+#league-of-trivia-button {
+    background-image: url("../images/league-of-trivia-button-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#league-of-trivia-button p {
+    color: rgb(170, 150, 85);
+    margin-top: 3%;
+    font-size: 3.25rem;
+}
+
+#coming-soon-button {
+    cursor: pointer;
+}
+
+#coming-soon-button * {
+    cursor: default;
 }
